@@ -9,25 +9,26 @@ using namespace std;
 int search(vector<int> A, int n, int target);
 
 int main(){
-    
+
 
     cout << "Please input the roated array seperated with enter and end with 'end'." << endl;
-    vector<int> nums1, nums2;
-    nums1 = {4, 5, 6, 7, 1, 2, 3};
+    vector<int> nums1, nums2,nums3;
+    nums1 = { 4, 5, 6, 7, 1, 2, 3 };
     nums2 = { 7, 1, 2, 3, 4, 5, 6 };
-    cout << search(nums1, 6, 1) << endl;
-    cout << search(nums1, 6, 2) << endl;
-    cout << search(nums1, 6, 3) << endl;
-    cout << search(nums1, 6, 4) << endl;
-    cout << search(nums1, 6, 5) << endl;
-    cout << search(nums1, 6, 6) << endl;
+    nums3 = {5, 1, 3};
+    /*cout << search(nums1, 7, 1) << endl;
+    cout << search(nums1, 7, 2) << endl;
+    cout << search(nums1, 7, 3) << endl;
+    cout << search(nums1, 7, 4) << endl;
+    cout << search(nums1, 7, 5) << endl;
+    cout << search(nums1, 7, 6) << endl;
 
-    cout << search(nums2, 6, 2) << endl;
-
+    cout << search(nums2, 7, 2) << endl;*/
+    cout << search(nums3, 3, 3) << endl;
     return 0;
 }
 int search(vector<int> A, int n, int target) {
-        int first = 0, last = n;
+        int first = 0, last = n-1;
         while (first != last) {
                 const int mid = (first + last) / 2;
                 if (A[mid] == target)
@@ -39,7 +40,7 @@ int search(vector<int> A, int n, int target) {
                         first = mid + 1;
                 }
                 else {
-                        if (A[mid] < target && target <= A[last - 1])
+                        if (A[mid] < target && target <= A[last])
                             first = mid + 1;
                         else
                         last = mid;
